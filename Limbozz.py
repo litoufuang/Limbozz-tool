@@ -249,6 +249,11 @@ def spam_link():
 def spam_invite():
     print("🚧 Tính năng đang phát triển...")
 
+def menu():
+    os.system("clear" if os.name == "posix" else "cls")
+    print_banner()
+    print_menu()
+
 from time import sleep
 
 def print_banner():
@@ -291,7 +296,8 @@ def print_menu():
         "12» Buff Like TikTok",
         "13» Buff View TikTok",
         "14» Spam SMS",
-        "15» Exit Menu"
+        "15» Spawn Menu",
+        "16» Exit Menu"
     ]
     print(f"\nLoaded <{len(load_tokens())}> tokens")
     print("┌──────────────────────────────┐")
@@ -342,40 +348,43 @@ def main():
 
     while True:
         try:
-            choice = input("\n-> Chọn chức năng (01-15): ").strip()
+            choice = input("\n-> Chọn chức năng (01-16): ").strip()
             print(f"[!] Đang chạy chức năng {choice}...\n")
 
             if choice == "01":
-                check_tokens()             # 01» Checker
+                check_tokens()             # Checker
             elif choice == "02":
-                join_server()             # 02» Join Server
+                join_server()             # Join Server
             elif choice == "03":
-                leave_server()            # 03» Leave Server
+                leave_server()            # Leave Server
             elif choice == "04":
-                spam_all_channels()       # 04» Spam Channels
+                spam_all_channels()       # Spam Channels
             elif choice == "05":
-                spam_message()            # 05» Spam Message
+                spam_message()            # Spam Message
             elif choice == "06":
-                spam_call()               # 06» Spam Call
+                spam_call()               # Spam Call
             elif choice == "07":
-                spam_link()               # 07» Spam Link
+                spam_link()               # Spam Link (placeholder)
             elif choice == "08":
-                spam_invite()             # 08» Spam Invite Sever
+                spam_invite()             # Spam Invite Sever (placeholder)
             elif choice == "09":
-                input_tokens()            # 09» Nhập Token
+                input_tokens()            # Nhập Token
             elif choice == "10":
-                get_proxies()             # 10» Get Proxy
+                get_proxies()             # Get Proxy
             elif choice == "11":
-                fake_buff_follow()        # 11» Buff Follow TikTok
+                fake_buff_follow()        # Buff Follow TikTok
             elif choice == "12":
-                fake_buff_like()          # 12» Buff Like TikTok
+                fake_buff_like()          # Buff Like TikTok
             elif choice == "13":
-                fake_buff_view()          # 13» Buff View TikTok
+                fake_buff_view()          # Buff View TikTok
             elif choice == "14":
-                fake_sms_spam()                # 14» Spam SMS
+                fake_sms_spam()           # Spam SMS
             elif choice == "15":
-                print("\n👋 Tạm biệt! Hẹn gặp lại Phi lần sau...")
-                break                     # 15» Exit Menu
+                print_banner()
+                print_menu()              # Spawn Menu
+            elif choice == "16":
+                print("\n👋 Tạm biệt! Hẹn gặp lại lần sau...")
+                break                     # Exit Menu
             else:
                 print("[!] Lựa chọn không hợp lệ!")
         except KeyboardInterrupt:
